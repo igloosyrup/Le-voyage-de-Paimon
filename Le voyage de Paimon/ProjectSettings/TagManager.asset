@@ -43,3 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Obstacles
+    uniqueID: 3258741707
+    locked: 0
+  - name: New Layer
+    uniqueID: 415381485
+    locked: 0
