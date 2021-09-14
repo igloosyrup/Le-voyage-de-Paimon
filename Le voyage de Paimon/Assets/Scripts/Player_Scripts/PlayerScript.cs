@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
             transform.position += Vector3.right * x;           
             
         }
-
+        
         if (Input.GetKey("w"))
         {
             var y = mSpeed * Time.deltaTime; 
