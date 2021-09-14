@@ -21,13 +21,15 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey("a"))
         {
             var x = mSpeed * Time.deltaTime; 
-            transform.position += Vector3.left * x;           
+            transform.position += Vector3.left * x;
+            transform.localScale = new Vector3(-0.5f, 0.5f, 0f);
         }
 
         if (Input.GetKey("d"))
         {
             var x = mSpeed * Time.deltaTime; 
             transform.position += Vector3.right * x;           
+            transform.localScale = new Vector3(0.5f, 0.5f, 0f);
             
         }
         
