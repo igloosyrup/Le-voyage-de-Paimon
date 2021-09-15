@@ -1263,7 +1263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059141086}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.14, y: 8.59, z: 0}
+  m_LocalPosition: {x: -1.14, y: 8.94, z: 0}
   m_LocalScale: {x: 43.003002, y: 0.6, z: 0}
   m_Children: []
   m_Father: {fileID: 1040873997}
@@ -1334,7 +1334,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.7924528, g: 0.3689095, b: 0.31025273, a: 1}
   m_FlipX: 0
@@ -1887,6 +1887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1593661337}
   - component: {fileID: 1593661338}
+  - component: {fileID: 1593661339}
   m_Layer: 3
   m_Name: Slime-01-Rest
   m_TagString: Enemy
@@ -1959,6 +1960,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1593661339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593661336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c484968ac853ee42bae9ce8aab73f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiPath: {fileID: 1035543427}
 --- !u!1 &1654020603
 GameObject:
   m_ObjectHideFlags: 0
