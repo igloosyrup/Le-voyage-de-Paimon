@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] private float mSpeed = 5f;
+    [SerializeField] private float mSpeed = 7.5f;
+    private const float PlayerSize = 0.4f; 
     private Rigidbody2D _rigidbody2D;
     private Vector2 _mvmnt;
     
@@ -22,14 +23,14 @@ public class PlayerScript : MonoBehaviour
         {
             var x = mSpeed * Time.deltaTime; 
             transform.position += Vector3.left * x;
-            transform.localScale = new Vector3(-0.5f, 0.5f, 0f);
+            transform.localScale = new Vector3(-PlayerSize, PlayerSize, 0f);
         }
 
         if (Input.GetKey("d"))
         {
             var x = mSpeed * Time.deltaTime; 
             transform.position += Vector3.right * x;           
-            transform.localScale = new Vector3(0.5f, 0.5f, 0f);
+            transform.localScale = new Vector3(PlayerSize, PlayerSize, 0f);
             
         }
         
