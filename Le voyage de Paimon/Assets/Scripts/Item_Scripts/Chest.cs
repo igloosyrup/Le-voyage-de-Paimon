@@ -9,6 +9,7 @@ public class Chest : MonoBehaviour
     private const string PlayerTag = "Player";
     private const string AnimationBoolName = "isTouched";
     private const float SelfDestructDelay = 1f;
+    private const int WolfIndex = 0;
     [SerializeField] private List<GameObject> listPowerUps;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
@@ -24,6 +25,10 @@ public class Chest : MonoBehaviour
     {
         if (!other.gameObject.tag.Equals(PlayerTag)) return;
         _animator.SetBool(IsTouched, true);
+        var chest = transform.position;
+        var posX = chest.x;
+        var posY = chest.y + 2;
+        Instantiate(listPowerUps[WolfIndex], new Vector3(posX, posY, 0f), Quaternion.Euler(0f,0f,-90f));
         StartCoroutine(DestroySelf());
     }
 
@@ -33,10 +38,5 @@ public class Chest : MonoBehaviour
         Destroy(_boxCollider2D);
         Destroy(_animator);
         Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        throw new NotImplementedException();
     }
 }
