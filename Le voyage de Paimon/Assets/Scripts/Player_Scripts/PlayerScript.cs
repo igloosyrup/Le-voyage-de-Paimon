@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     private Vector2 _mvmnt;
     private float _playerHp;
     private Transform _playerTransform;
-    
+    private bool _isRight = true;
 
     private void Start()
     {
@@ -20,41 +20,52 @@ public class PlayerScript : MonoBehaviour
         _playerTransform = transform;
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        
-        if (Input.GetKey("a"))
+        if (_rigidbody2D.velocity.x != 0f || _rigidbody2D.velocity.y != 0f)
         {
-            var x = mSpeed * Time.deltaTime; 
-            _playerTransform.position += Vector3.left * x;
-            _playerTransform.localScale = new Vector3(-PlayerSize, PlayerSize, 0f);
-            
-        }
-
-        if (Input.GetKey("d"))
-        {
-            var x = mSpeed * Time.deltaTime; 
-            _playerTransform.position += Vector3.right * x;           
-            _playerTransform.localScale = new Vector3(PlayerSize, PlayerSize, 0f);
-            
+            print(_rigidbody2D.velocity.ToString());
+            _rigidbody2D.velocity = Vector2.zero;
         }
         
         if (Input.GetKey("w"))
         {
-            var y = mSpeed * Time.deltaTime; 
+            var y = mSpeed * Time.deltaTime;
             _playerTransform.position += Vector3.up * y;
         }
 
         if (Input.GetKey("s"))
         {
-            var y = mSpeed * Time.deltaTime; 
+            var y = mSpeed * Time.deltaTime;
             _playerTransform.position += Vector3.down * y;
+        }
+
+        if (Input.GetKey("a"))
+        {
+            var x = mSpeed * Time.deltaTime;
+            _playerTransform.position += Vector3.left * x;
+            if (_isRight)
+            {
+                _playerTransform.localScale = new Vector3(-PlayerSize, PlayerSize, 0f);
+                _isRight = false;
+            }
+        }
+
+        if (Input.GetKey("d"))
+        {
+            var x = mSpeed * Time.deltaTime;
+            _playerTransform.position += Vector3.right * x;
+            if (!_isRight)
+            {
+                _playerTransform.localScale = new Vector3(PlayerSize, PlayerSize, 0f);
+                _isRight = true;
+            }
         }
     }
 
     private void FixedUpdate()
     {
         
+  
     }
 }
