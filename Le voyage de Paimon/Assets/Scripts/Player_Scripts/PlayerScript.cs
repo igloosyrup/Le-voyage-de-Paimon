@@ -6,17 +6,19 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private float mSpeed = 7.5f;
+    [SerializeField] private List<Animator> listAnimators;
+    private Animator _playerAnimator;
     private const float PlayerSize = 0.4f;
     private const float DefaultHealth = 200f;
     private Rigidbody2D _rigidbody2D;
-    private Vector2 _mvmnt;
     private float _playerHp;
     private Transform _playerTransform;
     private bool _isRight = true;
 
     private void Start()
     {
-        _rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _playerAnimator = GetComponent<Animator>();
         _playerTransform = transform;
     }
 
@@ -24,10 +26,17 @@ public class PlayerScript : MonoBehaviour
     {
         if (_rigidbody2D.velocity.x != 0f || _rigidbody2D.velocity.y != 0f)
         {
-            print(_rigidbody2D.velocity.ToString());
             _rigidbody2D.velocity = Vector2.zero;
         }
-        
+        MoveCharacter();
+    }
+
+    private void FixedUpdate()
+    {
+    }
+
+    private void MoveCharacter()
+    {
         if (Input.GetKey("w"))
         {
             var y = mSpeed * Time.deltaTime;
@@ -61,11 +70,5 @@ public class PlayerScript : MonoBehaviour
                 _isRight = true;
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        
-  
     }
 }
