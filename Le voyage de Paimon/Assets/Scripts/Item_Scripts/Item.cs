@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    private const string PlayerTag = "Player";
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Collider2D _collider2D;
-    
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -18,7 +19,8 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        StartCoroutine(DelayDestroy());
+        if (other.gameObject.CompareTag(PlayerTag))
+            StartCoroutine(DelayDestroy());
     }
 
     private IEnumerator DelayDestroy()
