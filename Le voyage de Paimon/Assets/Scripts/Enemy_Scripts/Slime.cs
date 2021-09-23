@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,21 @@ public class Slime : MonoBehaviour
 {
 
     [SerializeField] private AIPath aiPath;
+    [SerializeField] private List<SpriteRenderer> listProjectiles; 
+    private const float DefaultHp = 100f;
+    private float _slimeHp;
+    private Collider2D _collider2D;
+    private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _spriteRenderer;
     
-    
-    
+    private void Start()
+    {
+        _slimeHp = DefaultHp;
+        _collider2D = GetComponent<Collider2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        // _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
 
     // Update is called once per frame
     private void Update()

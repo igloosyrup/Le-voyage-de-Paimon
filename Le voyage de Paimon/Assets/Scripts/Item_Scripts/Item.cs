@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Collider2D _collider2D;
     
     private void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _collider2D = GetComponent<Collider2D>();
     }
@@ -22,8 +24,9 @@ public class Item : MonoBehaviour
     private IEnumerator DelayDestroy()
     {
         yield return new WaitForSeconds(0.1f);
-        Destroy(_animator);
+        Destroy(_spriteRenderer);
         Destroy(_collider2D);
+        Destroy(_animator);
         Destroy(gameObject);
     }
 }
