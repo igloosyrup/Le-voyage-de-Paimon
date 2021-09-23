@@ -489,6 +489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPath: {fileID: 2060690876}
+  listProjectiles:
+  - {fileID: 0}
 --- !u!212 &64387462
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1033,6 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPath: {fileID: 1988303003}
+  listProjectiles: []
 --- !u!212 &152096184
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6572,6 +6575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPath: {fileID: 1682609455}
+  listProjectiles: []
 --- !u!212 &942568271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11588,6 +11592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPath: {fileID: 1035543427}
+  listProjectiles: []
 --- !u!1001 &1594734605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16951,12 +16956,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6533963927221875471, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
+      propertyPath: m_Name
+      value: Wolf-Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533963927221875471, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6533963928043922773, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
+--- !u!1 &6533963927466926457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6533963927248359372, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
+  m_PrefabInstance: {fileID: 6533963927466926456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6533963927466926458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6533963926765228650, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
+  m_PrefabInstance: {fileID: 6533963927466926456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6533963927466926459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6533963927710893508, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
+  m_PrefabInstance: {fileID: 6533963927466926456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6533963927466926460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6533963927633754291, guid: 1383154963b5f8f40bf0ec24c01dc0ee, type: 3}
+  m_PrefabInstance: {fileID: 6533963927466926456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6533963927466926461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6533963927466926460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df0ea593083a154cbdb25734bcff8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles:
+  - {fileID: 6533963927466926459}
+  - {fileID: 6533963927466926458}
+  - {fileID: 6533963927466926457}
 --- !u!1001 &6608852195692212132
 PrefabInstance:
   m_ObjectHideFlags: 0

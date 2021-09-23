@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4628494691025347475}
   - component: {fileID: 2697425859168905607}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light-Pole-02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7020877512692927076}
   - component: {fileID: 7179146723050083718}
   - component: {fileID: 7180182743404310684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4825,7 +4825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7020997079324718076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lanter-Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

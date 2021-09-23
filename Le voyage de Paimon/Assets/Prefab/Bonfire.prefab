@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8963478055293502470}
   - component: {fileID: 3822923292551239052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bonfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,11 +92,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1204137475044404, guid: 2b206c0d2afb3604183d9210be1d84ce, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1261055530405198, guid: 2b206c0d2afb3604183d9210be1d84ce, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1400517151494326, guid: 2b206c0d2afb3604183d9210be1d84ce, type: 3}
       propertyPath: m_Name
@@ -104,11 +104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1400517151494326, guid: 2b206c0d2afb3604183d9210be1d84ce, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1901389882806724, guid: 2b206c0d2afb3604183d9210be1d84ce, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4099098413966716, guid: 2b206c0d2afb3604183d9210be1d84ce, type: 3}
       propertyPath: m_LocalPosition.z

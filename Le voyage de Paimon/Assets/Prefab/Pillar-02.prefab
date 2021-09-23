@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8870776977743395821}
   - component: {fileID: 2555996695191583348}
   - component: {fileID: 2854049181310976787}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar-02
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

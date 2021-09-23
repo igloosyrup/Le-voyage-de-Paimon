@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3841587118223234333}
   - component: {fileID: 3841587118223234332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light-Pole-01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3841587118651984410}
   - component: {fileID: 3841587118651984411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamp-02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3845985854752644844}
   - component: {fileID: 4004252900446241038}
   - component: {fileID: 4005291121971471380}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4991,7 +4991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3845812953434957684}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: PF FX Torch Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

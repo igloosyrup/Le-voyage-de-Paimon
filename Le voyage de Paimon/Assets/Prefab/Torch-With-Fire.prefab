@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2319777808505315566}
   - component: {fileID: 2319777808505315567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torch-With-Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2315024290807187060}
   - component: {fileID: 2490063076691075442}
   - component: {fileID: 2518981957281278238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4919,7 +4919,7 @@ GameObject:
   - component: {fileID: 2315306347273160080}
   - component: {fileID: 2517975169186814698}
   - component: {fileID: 2519658033335449614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9811,7 +9811,7 @@ GameObject:
   - component: {fileID: 2323331030961731112}
   - component: {fileID: 2517644465926433226}
   - component: {fileID: 2518683775639637200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14625,7 +14625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2323465981680078768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PF FX Torch Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
