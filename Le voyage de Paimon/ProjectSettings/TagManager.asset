@@ -9,6 +9,7 @@ TagManager:
   - Limits
   - Item
   - Attack
+  - WolfWeapon
   layers:
   - Default
   - TransparentFX
