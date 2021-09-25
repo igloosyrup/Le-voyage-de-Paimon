@@ -10,8 +10,6 @@ public class Slime : MonoBehaviour
     [SerializeField] private AIPath aiPath;
     [SerializeField] private List<GameObject> listProjectiles; 
     private const float DefaultHp = 100f;
-    private const float DestroyDelay = 0.3f;
-    private const string WolfWeaponTag = "WolfWeapon";
     private float _slimeHp;
     private Collider2D _collider2D;
     private Rigidbody2D _rigidbody2D;
@@ -40,7 +38,7 @@ public class Slime : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag(WolfWeaponTag))
+        if (other.gameObject.CompareTag(GameConstants.WolfWeaponTag))
         {
             StartCoroutine(DelayDestroy());
         }
@@ -49,7 +47,7 @@ public class Slime : MonoBehaviour
     
     private IEnumerator DelayDestroy()
     {
-        yield return new WaitForSeconds(DestroyDelay);
+        yield return new WaitForSeconds(GameConstants.MonsterDelay);
         Destroy(_collider2D);
         Destroy(_rigidbody2D);
         Destroy(_spriteRenderer);

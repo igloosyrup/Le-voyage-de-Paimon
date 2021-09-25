@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private const string PlayerTag = "Player";
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private Collider2D _collider2D;
@@ -19,13 +18,13 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag(PlayerTag))
+        if (other.gameObject.CompareTag(GameConstants.PlayerTag))
             StartCoroutine(DelayDestroy());
     }
 
     private IEnumerator DelayDestroy()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(GameConstants.ItemDelay);
         Destroy(_spriteRenderer);
         Destroy(_collider2D);
         Destroy(_animator);

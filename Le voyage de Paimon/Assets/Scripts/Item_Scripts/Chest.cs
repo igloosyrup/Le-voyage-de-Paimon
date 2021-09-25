@@ -6,14 +6,12 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
 
-    private const string PlayerTag = "Player";
-    private const string AnimationBoolName = "isTouched";
     private const float SelfDestructDelay = 1f;
     private const int WolfIndex = 0;
     [SerializeField] private List<GameObject> listPowerUps;
     private BoxCollider2D _boxCollider2D;
     private Animator _animator;
-    private static readonly int IsTouched = Animator.StringToHash(AnimationBoolName);
+    private static readonly int IsTouched = Animator.StringToHash(GameConstants.IsTouched);
 
     private void Start()
     {
@@ -23,7 +21,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.tag.Equals(PlayerTag)) return;
+        if (!other.gameObject.tag.Equals(GameConstants.PlayerTag)) return;
         _animator.SetBool(IsTouched, true);
         var chest = transform.position;
         var posX = chest.x;
