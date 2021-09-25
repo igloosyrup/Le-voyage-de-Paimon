@@ -78,6 +78,11 @@ public class PlayerScript : MonoBehaviour
                 _isRight = true;
             }
         }
+
+        if (Input.GetKeyDown(GameConstants.UltAttack))
+        {
+            
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
