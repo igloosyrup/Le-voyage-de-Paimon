@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private float mSpeed = 7.5f;
     [SerializeField] private List<Animator> listAnimators;
+    [SerializeField] private List<GameObject> listWeapons;
+    [SerializeField] private GameObject _backWeapon;
     private Animator _playerAnimator;
     private const float PlayerSize = 0.4f;
     private const float DefaultHealth = 200f;
@@ -14,12 +16,17 @@ public class PlayerScript : MonoBehaviour
     private float _playerHp;
     private Transform _playerTransform;
     private bool _isRight = true;
+    private bool _isWolfPickedUp = false;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
         _playerTransform = transform;
+        if (!_isWolfPickedUp)
+        {
+            _backWeapon.SetActive(false);
+        }
     }
 
     private void Update()
@@ -28,6 +35,7 @@ public class PlayerScript : MonoBehaviour
         {
             _rigidbody2D.velocity = Vector2.zero;
         }
+
         MoveCharacter();
     }
 
@@ -70,5 +78,20 @@ public class PlayerScript : MonoBehaviour
                 _isRight = true;
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag(GameConstants.BackWeaponTag) && !_isWolfPickedUp)
+        {
+            StartCoroutine(ShowBackWeapon(true));
+        }
+    }
+
+    private IEnumerator ShowBackWeapon(bool state)
+    {
+        yield return new WaitForSeconds(GameConstants.ItemDelay);
+        _backWeapon.SetActive(state);
+
     }
 }
