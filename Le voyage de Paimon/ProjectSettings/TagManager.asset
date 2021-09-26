@@ -10,6 +10,7 @@ TagManager:
   - Item
   - Attack
   - WolfWeapon
+  - BackWeapon
   layers:
   - Default
   - TransparentFX
