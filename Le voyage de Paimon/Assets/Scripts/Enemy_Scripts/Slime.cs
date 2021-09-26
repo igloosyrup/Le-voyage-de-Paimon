@@ -47,9 +47,9 @@ public class Slime : MonoBehaviour
     
     private IEnumerator DelayDestroy()
     {
-        yield return new WaitForSeconds(GameConstants.MonsterDelay);
         Destroy(_collider2D);
         Destroy(_rigidbody2D);
+        yield return new WaitForSeconds(GameConstants.MonsterDelay);
         Destroy(_spriteRenderer);
         Destroy(gameObject);
     }
