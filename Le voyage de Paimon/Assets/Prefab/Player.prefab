@@ -222,6 +222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mSpeed: 7.5
   listAnimators: []
+  listWeapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _backWeapon: {fileID: 2418679796776934406}
+  _ultWeapon: {fileID: 1095555330630401741}
 --- !u!61 &6533963927114222780
 BoxCollider2D:
   m_ObjectHideFlags: 0
