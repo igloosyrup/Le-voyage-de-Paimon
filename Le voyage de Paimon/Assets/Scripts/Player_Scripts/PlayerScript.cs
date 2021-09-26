@@ -113,7 +113,7 @@ public class PlayerScript : MonoBehaviour
         if (other.gameObject.CompareTag(GameConstants.BackWeaponTag) && _wolfCount < GameConstants.MaxWolfCount)
         {
             _wolfCount++;
-            if (!_isWolfPickedUp)
+            if (!_isWolfPickedUp && !_isWolfAttacking)
                 StartCoroutine(ShowBackWeapon(true, GameConstants.ItemDelay));
             print("weapon status "+ _isWolfPickedUp);
         }
