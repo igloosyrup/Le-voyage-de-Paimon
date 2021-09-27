@@ -11,6 +11,13 @@ TagManager:
   - Attack
   - WolfWeapon
   - BackWeapon
+  - Slime-01-Projectile
+  - Slime-02-Projectile
+  - Slime-03-Attack
+  - Slime-04-Attack
+  - Spike-Trap
+  - Spike-Ball
+  - Arrow-Trap
   layers:
   - Default
   - TransparentFX

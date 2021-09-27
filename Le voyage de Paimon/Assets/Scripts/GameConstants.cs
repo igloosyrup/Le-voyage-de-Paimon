@@ -6,7 +6,10 @@ public class GameConstants
     public const string PlayerTag = "Player";
     public const float ItemDelay = 0.1f;
     public const float MonsterDelay = 0.3f;
+    public const float MeleeAttackDelay = 1f;
+    public const float RangeAttackDelay = 0.5f;
     public const float UltAnimationDuration = 1f;
+    public const float DefaultSlimeHp = 100f;
     public const string Attack01 = "j";
     public const string Attack02 = "k";
     public const string Attack03 = "l";
