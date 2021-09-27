@@ -8,6 +8,7 @@ public class GameConstants
     public const float MonsterDelay = 0.3f;
     public const float MeleeAttackDelay = 1f;
     public const float RangeAttackDelay = 0.5f;
+    public const float ProjectileDuration = 2f;
     public const float UltAnimationDuration = 1f;
     public const float DefaultSlimeHp = 100f;
     public const string Attack01 = "j";
@@ -17,5 +18,7 @@ public class GameConstants
     public const string IsWolfAttackAnimBool = "isAttack";
     public const int MaxWolfCount = 5;
     public const int NoDelay = 0;
+    public const int Projectile01Index = 0;
+    
 }
 

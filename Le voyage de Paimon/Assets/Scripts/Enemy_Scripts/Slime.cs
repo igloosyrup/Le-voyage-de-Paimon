@@ -6,7 +6,6 @@ using Pathfinding;
 
 public class Slime : MonoBehaviour
 {
-
     [SerializeField] private AIPath aiPath;
     [SerializeField] private GameObject meleeHitbox;
     [SerializeField] private List<GameObject> listProjectiles;
@@ -16,6 +15,8 @@ public class Slime : MonoBehaviour
     private Collider2D _collider2D;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
+    private bool _isAttack;
+
     private void Start()
     {
         _slimeHp = GameConstants.DefaultSlimeHp;
@@ -35,7 +36,8 @@ public class Slime : MonoBehaviour
         if (aiPath.desiredVelocity.x >= 0.01f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-        }else if (aiPath.desiredVelocity.x <= -0.01f)
+        }
+        else if (aiPath.desiredVelocity.x <= -0.01f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
@@ -48,27 +50,35 @@ public class Slime : MonoBehaviour
             StartCoroutine(DelayDestroy());
         }
     }
-    
+
+    private void ShootProjectile()
+    {
+        if (listProjectiles.Count <= 0)
+            return;
+                
+    }
+
     private void ActivateMeleeCollider()
     {
-        if (_meleeCollider2D != null && _meleeCollider2D.enabled == false)
-            _meleeCollider2D.enabled = true;
+        if (_meleeCollider2D == null || _meleeCollider2D.enabled)
+            return;
+        _meleeCollider2D.enabled = true;
+        
     }
 
     private void DisableMeleeCollider()
     {
-        if (_meleeCollider2D != null && _meleeCollider2D.enabled)
-        {
-            _meleeCollider2D.enabled = false;
-        }
+        if (_meleeCollider2D == null || _meleeCollider2D.enabled == false)
+            return;
+        _meleeCollider2D.enabled = false;
     }
 
     private IEnumerator DelayNextAttack()
     {
         yield return new WaitForSeconds(_attackDelay);
-        
+        _isAttack = false;
     }
-    
+
     private IEnumerator DelayDestroy()
     {
         Destroy(_collider2D);
