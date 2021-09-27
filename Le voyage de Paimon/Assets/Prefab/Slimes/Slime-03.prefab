@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2524050838608287628}
   - component: {fileID: 2895747716527748435}
   m_Layer: 3
-  m_Name: Hitbox
+  m_Name: Melee-Hitbox
   m_TagString: Slime-03-Attack
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
