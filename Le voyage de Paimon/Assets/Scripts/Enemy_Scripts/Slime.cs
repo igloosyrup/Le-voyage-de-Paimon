@@ -8,6 +8,7 @@ public class Slime : MonoBehaviour
 {
     [SerializeField] private AIPath aiPath;
     [SerializeField] private GameObject meleeHitbox;
+    [SerializeField] private GameObject shootSpawn;
     [SerializeField] private List<GameObject> listProjectiles;
     private float _slimeHp;
     private float _attackDelay;
@@ -29,18 +30,18 @@ public class Slime : MonoBehaviour
         _meleeCollider2D.enabled = false;
     }
 
-
-    // Update is called once per frame
     private void Update()
     {
         if (aiPath.desiredVelocity.x >= 0.01f)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
         else if (aiPath.desiredVelocity.x <= -0.01f)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
+
+        ShootProjectile();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,9 +54,12 @@ public class Slime : MonoBehaviour
 
     private void ShootProjectile()
     {
-        if (listProjectiles.Count <= 0)
+        if (listProjectiles.Count <= 0 || shootSpawn == null || _isAttack)
             return;
-                
+        Instantiate(listProjectiles[GameConstants.Projectile01Index], shootSpawn.transform.position,
+            shootSpawn.transform.rotation);
+        _isAttack = true;
+        StartCoroutine(DelayNextAttack());
     }
 
     private void ActivateMeleeCollider()
@@ -63,7 +67,6 @@ public class Slime : MonoBehaviour
         if (_meleeCollider2D == null || _meleeCollider2D.enabled)
             return;
         _meleeCollider2D.enabled = true;
-        
     }
 
     private void DisableMeleeCollider()
