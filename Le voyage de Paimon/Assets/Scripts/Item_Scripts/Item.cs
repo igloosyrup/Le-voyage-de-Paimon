@@ -18,16 +18,17 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag(GameConstants.PlayerTag))
-            StartCoroutine(DelayDestroy());
+        if (!other.gameObject.CompareTag(GameConstants.PlayerTag))
+            return;
+        Destroy(_collider2D);
+        StartCoroutine(DelayDestroy());
     }
 
     private IEnumerator DelayDestroy()
     {
         yield return new WaitForSeconds(GameConstants.ItemDelay);
-        Destroy(_spriteRenderer);
-        Destroy(_collider2D);
         Destroy(_animator);
+        Destroy(_spriteRenderer);
         Destroy(gameObject);
     }
 }

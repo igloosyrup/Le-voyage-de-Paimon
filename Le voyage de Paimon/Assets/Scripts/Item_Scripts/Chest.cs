@@ -32,8 +32,8 @@ public class Chest : MonoBehaviour
 
     private IEnumerator DestroySelf()
     {
-        yield return new WaitForSeconds(SelfDestructDelay);
         Destroy(_boxCollider2D);
+        yield return new WaitForSeconds(SelfDestructDelay);
         Destroy(_animator);
         Destroy(gameObject);
     }
