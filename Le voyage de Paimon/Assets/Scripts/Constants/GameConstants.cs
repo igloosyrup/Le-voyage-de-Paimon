@@ -2,13 +2,14 @@ public class GameConstants
 {
     public const string WolfWeaponTag = "WolfWeapon";
     public const string BackWeaponTag = "BackWeapon";
+    public const string ObstacleTag = "Obstacle";
     public const string IsTouched = "isTouched";
     public const string PlayerTag = "Player";
     public const float ItemDelay = 0.1f;
     public const float MonsterDelay = 0.3f;
     public const float MeleeAttackDelay = 1f;
-    public const float RangeAttackDelay = 0.5f;
-    public const float ProjectileDuration = 2f;
+    public const float RangeAttackDelay = 2f;
+    public const float ProjectileDuration = 1f;
     public const float UltAnimationDuration = 1f;
     public const float DefaultSlimeHp = 100f;
     public const string Attack01 = "j";
