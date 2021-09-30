@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiPath: {fileID: 0}
   meleeHitbox: {fileID: 379682301458709023}
+  shootSpawn: {fileID: 0}
   listProjectiles: []
 --- !u!60 &2291503988977604744
 PolygonCollider2D:

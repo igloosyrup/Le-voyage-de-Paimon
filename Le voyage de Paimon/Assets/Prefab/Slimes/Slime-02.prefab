@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiPath: {fileID: 0}
   meleeHitbox: {fileID: 0}
+  shootSpawn: {fileID: 5177182613211528926}
   listProjectiles:
   - {fileID: 9159908662327938009, guid: 930acef16c1b76d4eb48cecf610cc137, type: 3}
 --- !u!60 &1843346451170874190
@@ -205,10 +206,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5177182613211528926}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.6, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.025, y: -0.126, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 1843346451170874194}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
