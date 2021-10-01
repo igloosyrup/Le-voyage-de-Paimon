@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4775707645335863992}
   - component: {fileID: 1958562254580744579}
   m_Layer: 3
-  m_Name: White_Iron_Chunk
+  m_Name: Iron_Chunk
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
