@@ -1,18 +1,21 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
     [SerializeField] private GameObject trapProjectile;
     [SerializeField] private GameObject shootSpawn;
-    [SerializeField] private float rayDistance = 5f;
+    [SerializeField] private float rayDistance = 10f;
+    private Vector3 _shootSpawnPosition;
     private Collider2D _trapCollider2D;
     private bool _isShot;
 
     private void Start()
     {
-        // if (trapProjectile != null && shootSpawn != null)
+        _trapCollider2D = GetComponent<Collider2D>();
+        if (trapProjectile != null && shootSpawn != null)
+            _shootSpawnPosition = shootSpawn.transform.position;
         //     InvokeRepeating(nameof(Shoot), 0f, 1f);
     }
 
@@ -20,28 +23,29 @@ public class Trap : MonoBehaviour
     {
         if (trapProjectile == null || shootSpawn == null)
             return;
-        var hit = Physics2D.Raycast(shootSpawn.transform.position, transform.TransformDirection(Vector2.up), 10f);
-        Debug.DrawRay(shootSpawn.transform.position, transform.TransformDirection(Vector2.up) * 10f, Color.white);
-        if (hit.collider == null) return;
-
-        if (hit.collider.gameObject.CompareTag(GameConstants.PlayerTag))
-        {
-            if (_isShot)
-                return;
-            StartCoroutine(DelayAttack());
-        }
+        var hit = Physics2D.Raycast(_shootSpawnPosition, transform.TransformDirection(Vector2.up), rayDistance);
+        Debug.DrawRay(_shootSpawnPosition, transform.TransformDirection(Vector2.up) * rayDistance, Color.white);
+        if (hit.collider == null || !hit.collider.gameObject.CompareTag(GameConstants.PlayerTag) || _isShot) return;
+        _isShot = true;
+        StartCoroutine(DelayAttack());
     }
 
     private void Shoot()
     {
         Instantiate(trapProjectile, shootSpawn.transform.position, shootSpawn.transform.rotation);
-        _isShot = true;
     }
 
     private IEnumerator DelayAttack()
     {
-        Shoot();
+        Invoke(nameof(Shoot), 0.2f);
         yield return new WaitForSeconds(GameConstants.RangeAttackDelay);
         _isShot = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag(GameConstants.PlayerTag))
+        {
+        }
     }
 }
