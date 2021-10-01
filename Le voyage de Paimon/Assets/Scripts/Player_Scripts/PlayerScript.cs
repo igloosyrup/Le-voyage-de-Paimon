@@ -13,6 +13,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private List<GameObject> listWeapons;
     [SerializeField] private GameObject _backWeapon;
     [SerializeField] private GameObject _ultWeapon;
+    [SerializeField] private List<AudioClip> pickupItemClips;
+    [SerializeField] private List<AudioClip> pickupPowerUpClips;
+    [SerializeField] private List<AudioClip> hurtClips;
+    [SerializeField] private List<AudioClip> deathClips;
+    [SerializeField] private List<AudioClip> attackClips;
 
     public delegate void OnUltPressed();
 
