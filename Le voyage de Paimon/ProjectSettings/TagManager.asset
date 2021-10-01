@@ -18,6 +18,11 @@ TagManager:
   - Spike-Trap
   - Spike-Ball
   - Arrow-Trap
+  - Chicken-Attack
+  - Carrot-Attack
+  - Iron-Chunk-Attack
+  - Recovery
+  - Power-Up
   layers:
   - Default
   - TransparentFX
