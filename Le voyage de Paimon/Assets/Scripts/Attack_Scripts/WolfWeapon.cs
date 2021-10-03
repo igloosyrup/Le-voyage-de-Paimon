@@ -27,7 +27,7 @@ public class WolfWeapon : MonoBehaviour
         _wolfCollider2D = wolfWeapon.GetComponent<PolygonCollider2D>();
         _wolfSpriteRenderer = wolfWeapon.GetComponent<SpriteRenderer>();
         _wolfCollider2D.enabled = false;
-        PlayerScript.GetPlayerPlayerInstance.ONActivated += ActivateWeapon;
+        PlayerScript.GetPlayerPlayerInstance.OnActivated += ActivateWeapon;
     }
 
     private void Update()
