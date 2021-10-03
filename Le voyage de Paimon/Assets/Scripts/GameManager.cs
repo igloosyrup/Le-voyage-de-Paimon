@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name.Equals(GameConstants.SceneMainMenu))
+        {
             
+        }
     }
 
     public void DeselectButton()
@@ -60,9 +63,10 @@ public class GameManager : MonoBehaviour
         _audioSource.clip = levelBGMAudioClips[lvl01AudioClipIndex];
         _audioSource.enabled = true;
         
-        _scenesLoading.Add(SceneManager.UnloadSceneAsync(GameConstants.SceneMainMenu));
+        // _scenesLoading.Add(SceneManager.UnloadSceneAsync(GameConstants.SceneMainMenu));
         // TODO change scene name later
         _scenesLoading.Add(SceneManager.LoadSceneAsync(GameConstants.SceneLose));
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void PauseGame()
@@ -73,5 +77,17 @@ public class GameManager : MonoBehaviour
     public void SettingsMenu()
     {
         
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode loadSceneMode)
+    {
+        var sceneName = SceneManager.GetActiveScene().name;
+        if(sceneName.Equals(GameConstants.SceneLose) || sceneName.Equals(GameConstants.SceneWin))
+            Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
