@@ -5,6 +5,13 @@ public class GameConstants
     public const string ObstacleTag = "Obstacle";
     public const string IsTouched = "isTouched";
     public const string PlayerTag = "Player";
+    public const string SceneMainMenu = "Main-Menu";
+    public const string SceneLose = "Game-Over-Lose";
+    public const string SceneWin = "Game-Over-Win";
+    public const string SceneLvl01 = "Level-01";
+    public const string SceneLvl02 = "Level-02";
+    public const string SceneLvl03 = "Level-03";
+    
     public const float ItemDelay = 0.1f;
     public const float MonsterDelay = 0.3f;
     public const float MeleeAttackDelay = 1f;
@@ -20,6 +27,7 @@ public class GameConstants
     public const int MaxWolfCount = 5;
     public const int NoDelay = 0;
     public const int Projectile01Index = 0;
-    
+    public const int Level01AudioClipLength = 2;
+
 }
 
