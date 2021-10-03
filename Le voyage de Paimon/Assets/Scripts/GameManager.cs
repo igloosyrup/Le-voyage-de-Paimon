@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
     }
 
     public void NextLevel()
@@ -72,11 +71,14 @@ public class GameManager : MonoBehaviour
     private IEnumerator PlayNext()
     {
         yield return new WaitForSeconds(_audioSource.clip.length);
+        if (_activeAudioClipIndex > _currentListAudiocClips.Count || _activeAudioClipIndex < 0 ||
+            _currentListAudiocClips.Count <= 0)
+            yield return null;
         _activeAudioClipIndex =
             _activeAudioClipIndex + 1 >= _currentListAudiocClips.Count ? 0 : ++_activeAudioClipIndex;
         PlayBGM();
     }
-    
+
     private void OnSceneLoaded(Scene arg0, LoadSceneMode loadSceneMode)
     {
         var sceneName = SceneManager.GetActiveScene().name;
