@@ -23,6 +23,7 @@ TagManager:
   - Iron-Chunk-Attack
   - Recovery
   - Power-Up
+  - NextLevel
   layers:
   - Default
   - TransparentFX
