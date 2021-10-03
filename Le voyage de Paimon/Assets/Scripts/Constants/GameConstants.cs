@@ -3,6 +3,7 @@ public class GameConstants
     public const string WolfWeaponTag = "WolfWeapon";
     public const string BackWeaponTag = "BackWeapon";
     public const string ObstacleTag = "Obstacle";
+    public const string PlayerSpawnTag = "PlayerSpawn";
     public const string IsTouched = "isTouched";
     public const string PlayerTag = "Player";
     public const string SceneMainMenu = "Main-Menu";
