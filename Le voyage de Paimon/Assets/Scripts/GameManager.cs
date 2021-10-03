@@ -61,10 +61,17 @@ public class GameManager : MonoBehaviour
 
     private void PlayBGM()
     {
-        if (_activeAudioClipIndex > _currentListAudiocClips.Count || _activeAudioClipIndex < 0)
+        if (_activeAudioClipIndex > _currentListAudiocClips.Count || _activeAudioClipIndex < 0 ||
+            _currentListAudiocClips.Count == 1)
             return;
         _audioSource.clip = _currentListAudiocClips[_activeAudioClipIndex];
         _audioSource.Play();
+        if (_currentListAudiocClips.Count == 1)
+        {
+            _audioSource.loop = true;
+            return;
+        }
+
         StartCoroutine(PlayNext());
     }
 
