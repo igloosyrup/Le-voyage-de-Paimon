@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     // private GameObject _player;
     private List<AsyncOperation> _scenesLoading;
+    private List<AudioClip> _currentListAudiocClips;
+    private int _activeAudioClipIndex;
     private AudioSource _audioSource;
 
     private void Awake()
@@ -26,15 +28,15 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         else
             _gameManagerInstance = this;
-
     }
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        _currentListAudiocClips = level01AudioClips;
         _audioSource = GetComponent<AudioSource>();
         _scenesLoading = new List<AsyncOperation>();
-        
+        PlayBGM();
     }
 
     private void Update()
@@ -58,11 +60,23 @@ public class GameManager : MonoBehaviour
     {
     }
 
-    private void PlayBGM(List<AudioClip> audioClips)
+    private void PlayBGM()
     {
-        
+        if (_activeAudioClipIndex > _currentListAudiocClips.Count || _activeAudioClipIndex < 0)
+            return;
+        _audioSource.clip = _currentListAudiocClips[_activeAudioClipIndex];
+        _audioSource.Play();
+        StartCoroutine(PlayNext());
     }
 
+    private IEnumerator PlayNext()
+    {
+        yield return new WaitForSeconds(_audioSource.clip.length);
+        _activeAudioClipIndex =
+            _activeAudioClipIndex + 1 >= _currentListAudiocClips.Count ? 0 : ++_activeAudioClipIndex;
+        PlayBGM();
+    }
+    
     private void OnSceneLoaded(Scene arg0, LoadSceneMode loadSceneMode)
     {
         var sceneName = SceneManager.GetActiveScene().name;
