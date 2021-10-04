@@ -24,6 +24,8 @@ TagManager:
   - Recovery
   - Power-Up
   - NextLevel
+  - Spawn
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
