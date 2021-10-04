@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 
     public delegate void OnUltPressed();
 
-    public event OnUltPressed ONActivated;
+    public event OnUltPressed OnActivated;
 
     private Animator _playerAnimator;
     private const float PlayerSize = 0.4f;
@@ -65,7 +65,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(GameConstants.UltAttack) && _isWolfPickedUp && _wolfCount > 0)
         {
             StartCoroutine(ShowBackWeapon(false, GameConstants.NoDelay));
-            ONActivated?.Invoke();
+            OnActivated?.Invoke();
             _isWolfAttacking = true;
             _wolfCount--;
             StartCoroutine(DisableWolfWeaponAttackDelay());
