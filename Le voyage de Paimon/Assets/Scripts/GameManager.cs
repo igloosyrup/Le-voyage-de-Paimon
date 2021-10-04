@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
@@ -12,10 +13,12 @@ public class GameManager : MonoBehaviour
     private static GameManager _gameManagerInstance;
     public static GameManager GetGameManagerInstance => _gameManagerInstance;
 
-    public delegate string OnNextLevelReached();
+    public delegate string OnChangeScene();
 
-    public event OnNextLevelReached OnNextLevel;
+    public event OnChangeScene OnNextScene;
 
+    [SerializeField] private Canvas pauseCanvas;
+    [SerializeField] private EventSystem eventSystem;
     [SerializeField] private List<AudioClip> level01AudioClips;
     [SerializeField] private List<AudioClip> level02AudioClips;
     [SerializeField] private List<AudioClip> level03AudioClips;
@@ -41,13 +44,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         _player = PlayerScript.GetPlayerPlayerInstance;
         _camera = FindObjectOfType<Camera>();
         _cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         DontDestroyOnLoad(_camera);
         DontDestroyOnLoad(_cinemachineVirtualCamera);
         DontDestroyOnLoad(_player);
+        DontDestroyOnLoad(eventSystem);
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(pauseCanvas);
+
         _currentListAudiocClips = level01AudioClips;
         _audioSource = GetComponent<AudioSource>();
         _scenesLoading = new List<AsyncOperation>();
@@ -57,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (OnNextLevel != null)
+        if (OnNextScene != null)
             NextLevel();
     }
 
@@ -65,21 +72,12 @@ public class GameManager : MonoBehaviour
     {
         _audioSource.Stop();
         StopCoroutine(_PlayNextBGMCoroutine);
-
-        var sceneName = OnNextLevel?.Invoke().Clone().ToString();
-        OnNextLevel = null;
+        var sceneName = OnNextScene?.Invoke().Clone().ToString();
+        OnNextScene = null;
         _scenesLoading.Add(SceneManager.LoadSceneAsync(sceneName));
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
 
-    public void PauseGame()
-    {
     }
-
-    public void SettingsMenu()
-    {
-    }
-
+    
     private void PlayBGM()
     {
         if (_activeAudioClipIndex > _currentListAudiocClips.Count || _activeAudioClipIndex < 0)
@@ -109,24 +107,26 @@ public class GameManager : MonoBehaviour
         PlayBGM();
     }
 
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode loadSceneMode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         var sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName.Equals(GameConstants.SceneLose) || sceneName.Equals(GameConstants.SceneWin) ||
+        if (sceneName.Equals(GameConstants.SceneLose) && sceneName.Equals(GameConstants.SceneWin) ||
             sceneName.Equals(GameConstants.SceneMainMenu))
         {
             _cinemachineVirtualCamera.enabled = false;
-            Destroy(_cinemachineVirtualCamera);
-            Destroy(_camera);
-            Destroy(_player);
+            pauseCanvas.enabled = false;
+            eventSystem.enabled = false;
+            Destroy(pauseCanvas.gameObject);
+            Destroy(eventSystem.gameObject);
+            Destroy(_cinemachineVirtualCamera.gameObject);
+            Destroy(_camera.gameObject);
+            Destroy(_player.gameObject);
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            ChangeLevelBGM();
-            var spawn = GameObject.FindWithTag(GameConstants.PlayerSpawnTag).transform;
-            _player.transform.position = spawn.position;
-        }
+        ChangeLevelBGM();
+        var spawn = GameObject.FindWithTag(GameConstants.PlayerSpawnTag).transform;
+        _player.transform.position = spawn.position;
     }
 
     private void ChangeLevelBGM()
