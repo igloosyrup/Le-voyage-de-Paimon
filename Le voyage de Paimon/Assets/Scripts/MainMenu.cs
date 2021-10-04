@@ -17,6 +17,8 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         // _scenesLoading.Add(SceneManager.LoadSceneAsync(GameConstants.SceneLose));
+        _audioSource.Stop();
+        _audioSource.enabled = false;
         _scenesLoading.Add(SceneManager.LoadSceneAsync(GameConstants.SceneWin));
     }
     
