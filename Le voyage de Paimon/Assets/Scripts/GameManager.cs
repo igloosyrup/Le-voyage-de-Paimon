@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -10,10 +12,13 @@ public class GameManager : MonoBehaviour
     private static GameManager _gameManagerInstance;
     public static GameManager GetGameManagerInstance => _gameManagerInstance;
 
+    public delegate string OnNextLevelReached();
+
+    public event OnNextLevelReached OnNextLevel;
+
     [SerializeField] private List<AudioClip> level01AudioClips;
     [SerializeField] private List<AudioClip> level02AudioClips;
     [SerializeField] private List<AudioClip> level03AudioClips;
-
     [SerializeField] private List<AudioClip> otherAudioClips;
 
     // private GameObject _player;
@@ -21,6 +26,10 @@ public class GameManager : MonoBehaviour
     private List<AudioClip> _currentListAudiocClips;
     private int _activeAudioClipIndex;
     private AudioSource _audioSource;
+    private PlayerScript _player;
+    private Camera _camera;
+    private CinemachineVirtualCamera _cinemachineVirtualCamera;
+    private IEnumerator _PlayNextBGMCoroutine;
 
     private void Awake()
     {
@@ -32,22 +41,34 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _player = PlayerScript.GetPlayerPlayerInstance;
+        _camera = FindObjectOfType<Camera>();
+        _cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        DontDestroyOnLoad(_camera);
+        DontDestroyOnLoad(_cinemachineVirtualCamera);
+        DontDestroyOnLoad(_player);
         DontDestroyOnLoad(gameObject);
         _currentListAudiocClips = level01AudioClips;
         _audioSource = GetComponent<AudioSource>();
         _scenesLoading = new List<AsyncOperation>();
+        _PlayNextBGMCoroutine = PlayNext();
         PlayBGM();
     }
 
     private void Update()
     {
+        if (OnNextLevel != null)
+            NextLevel();
     }
 
-    public void NextLevel()
+    private void NextLevel()
     {
-        // _scenesLoading.Add(SceneManager.UnloadSceneAsync(GameConstants.SceneMainMenu));
-        // TODO change scene name later
-        // _scenesLoading.Add(SceneManager.LoadSceneAsync(GameConstants.SceneLose));
+        _audioSource.Stop();
+        StopCoroutine(_PlayNextBGMCoroutine);
+
+        var sceneName = OnNextLevel?.Invoke().Clone().ToString();
+        OnNextLevel = null;
+        _scenesLoading.Add(SceneManager.LoadSceneAsync(sceneName));
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -61,9 +82,11 @@ public class GameManager : MonoBehaviour
 
     private void PlayBGM()
     {
-        if (_activeAudioClipIndex > _currentListAudiocClips.Count || _activeAudioClipIndex < 0 ||
-            _currentListAudiocClips.Count == 1)
+        if (_activeAudioClipIndex > _currentListAudiocClips.Count || _activeAudioClipIndex < 0)
+        {
             return;
+        }
+
         _audioSource.clip = _currentListAudiocClips[_activeAudioClipIndex];
         _audioSource.Play();
         if (_currentListAudiocClips.Count == 1)
@@ -72,7 +95,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        StartCoroutine(PlayNext());
+        StartCoroutine(_PlayNextBGMCoroutine);
     }
 
     private IEnumerator PlayNext()
@@ -91,7 +114,33 @@ public class GameManager : MonoBehaviour
         var sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.Equals(GameConstants.SceneLose) || sceneName.Equals(GameConstants.SceneWin) ||
             sceneName.Equals(GameConstants.SceneMainMenu))
+        {
+            _cinemachineVirtualCamera.enabled = false;
+            Destroy(_cinemachineVirtualCamera);
+            Destroy(_camera);
+            Destroy(_player);
             Destroy(gameObject);
+        }
+        else
+        {
+            ChangeLevelBGM();
+            var spawn = GameObject.FindWithTag(GameConstants.PlayerSpawnTag).transform;
+            _player.transform.position = spawn.position;
+        }
+    }
+
+    private void ChangeLevelBGM()
+    {
+        var sceneName = SceneManager.GetActiveScene().name;
+        _currentListAudiocClips = sceneName switch
+        {
+            GameConstants.SceneLvl01 => level01AudioClips,
+            GameConstants.SceneLvl02 => level02AudioClips,
+            GameConstants.SceneLvl03 => level03AudioClips,
+            _ => _currentListAudiocClips
+        };
+        _activeAudioClipIndex = 0;
+        PlayBGM();
     }
 
     private void OnDestroy()
