@@ -6,10 +6,12 @@ using Pathfinding;
 
 public class Slime : MonoBehaviour
 {
-    [SerializeField] private AIPath aiPath;
+    [SerializeField] private GameObject slimeAI;
     [SerializeField] private GameObject meleeHitbox;
     [SerializeField] private GameObject shootSpawn;
     [SerializeField] private List<GameObject> listProjectiles;
+    private AIPath _aiPath;
+    private AIDestinationSetter _aiDestinationSetter;
     private float _slimeHp;
     private float _attackDelay;
     private Collider2D _meleeCollider2D;
@@ -20,6 +22,9 @@ public class Slime : MonoBehaviour
 
     private void Start()
     {
+        _aiPath = slimeAI.GetComponent<AIPath>();
+        _aiDestinationSetter = slimeAI.GetComponent<AIDestinationSetter>();
+        _aiDestinationSetter.target = GameObject.FindWithTag(GameConstants.PlayerTag).transform;
         _slimeHp = GameConstants.DefaultSlimeHp;
         _collider2D = GetComponent<Collider2D>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -32,14 +37,15 @@ public class Slime : MonoBehaviour
 
     private void Update()
     {
-        if (aiPath.desiredVelocity.x >= 0.01f)
-        {
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
-        else if (aiPath.desiredVelocity.x <= -0.01f)
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
+        if (_aiPath != null)
+            if (_aiPath.desiredVelocity.x >= 0.01f)
+            {
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            }
+            else if (_aiPath.desiredVelocity.x <= -0.01f)
+            {
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
 
         ShootProjectile();
     }
