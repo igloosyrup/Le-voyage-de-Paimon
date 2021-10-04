@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76c7b7ed8f03384aafe51735dcf5a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseCanvas: {fileID: 0}
+  eventSystem: {fileID: 0}
   level01AudioClips:
   - {fileID: 8300000, guid: 8e3e532cb42262b47a81d4b5b14dc13a, type: 3}
   - {fileID: 8300000, guid: 6ba214d02e416074686640c59cb123e1, type: 3}
@@ -64,11 +66,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8e3e532cb42262b47a81d4b5b14dc13a, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
