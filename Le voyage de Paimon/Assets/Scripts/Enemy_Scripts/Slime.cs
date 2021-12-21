@@ -75,10 +75,11 @@ public class Slime : MonoBehaviour
             print("inside the not range delay");
             return;
         }
+
         _shootDetectionPosition = shootDetection.transform.position;
         var hit = Physics2D.Raycast(_shootDetectionPosition, transform.TransformDirection(Vector2.left), rayDistance);
         Debug.DrawRay(_shootDetectionPosition, transform.TransformDirection(Vector2.left) * rayDistance, Color.white);
-        
+
         // if(hit.collider && hit.collider.gameObject.CompareTag(GameConstants.PlayerTag))
         //     print("player");
 
@@ -86,18 +87,20 @@ public class Slime : MonoBehaviour
         {
             return;
         }
+
         _animator.SetBool(GameConstants.IsAttackAnimBool, true);
-        // ShootProjectile();
-        
-        // _isAttack = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag(GameConstants.WolfWeaponTag))
         {
+            // Destroy(_collider2D);
+            // Destroy(_rigidbody2D);
             StartCoroutine(DelayDestroy());
         }
+
+        // TODO add future implementations for general player projectiles
     }
 
     private void ShootProjectile()
@@ -135,10 +138,20 @@ public class Slime : MonoBehaviour
 
     private IEnumerator DelayDestroy()
     {
+        _animator.SetBool(GameConstants.IsDeadAnimBool, true);
         Destroy(_collider2D);
         Destroy(_rigidbody2D);
         yield return new WaitForSeconds(GameConstants.MonsterDelay);
+        _animator.SetBool(GameConstants.IsDeadAnimBool, false);
+        _animator.SetBool(GameConstants.IsAttackAnimBool, false);
+        _animator.SetBool(GameConstants.IsHitAnimBool, false);
+    }
+
+    private void DestroySlime()
+    {
         Destroy(_spriteRenderer);
-        Destroy(gameObject);
+        Destroy(slimeAI);
+        // Destroying the parent object allows to skip destroying the gameobject 
+        // Destroy(gameObject);
     }
 }
