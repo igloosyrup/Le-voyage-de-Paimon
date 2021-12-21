@@ -28,8 +28,8 @@ public class Slime : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _isAIPathNotNull = _aiPath != null;
         _aiPath = slimeAI.GetComponent<AIPath>();
+        _isAIPathNotNull = _aiPath != null;
         _aiDestinationSetter = slimeAI.GetComponent<AIDestinationSetter>();
         _aiDestinationSetter.target = GameObject.FindWithTag(GameConstants.PlayerTag).transform;
         _slimeHp = GameConstants.DefaultSlimeHp;
@@ -63,11 +63,11 @@ public class Slime : MonoBehaviour
         if (_isAIPathNotNull)
             if (_aiPath.desiredVelocity.x >= 0.01f)
             {
-                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                slimeAI.gameObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
             }
             else if (_aiPath.desiredVelocity.x <= -0.01f)
             {
-                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                slimeAI.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
 
         if (_attackDelay.CompareTo(GameConstants.RangeAttackDelay) != 0)
@@ -138,13 +138,13 @@ public class Slime : MonoBehaviour
 
     private IEnumerator DelayDestroy()
     {
+        _animator.SetBool(GameConstants.IsAttackAnimBool, false);
+        _animator.SetBool(GameConstants.IsHitAnimBool, false);
         _animator.SetBool(GameConstants.IsDeadAnimBool, true);
         Destroy(_collider2D);
         Destroy(_rigidbody2D);
         yield return new WaitForSeconds(GameConstants.MonsterDelay);
         _animator.SetBool(GameConstants.IsDeadAnimBool, false);
-        _animator.SetBool(GameConstants.IsAttackAnimBool, false);
-        _animator.SetBool(GameConstants.IsHitAnimBool, false);
     }
 
     private void DestroySlime()
