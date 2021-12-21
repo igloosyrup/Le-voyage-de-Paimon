@@ -10,9 +10,13 @@ public class Trap : MonoBehaviour
     private Vector3 _shootSpawnPosition;
     private Collider2D _trapCollider2D;
     private bool _isShot;
+    private bool _isTrapProjectileNull;
+    private bool _isShootSpawnNull;
 
     private void Start()
     {
+        _isShootSpawnNull = shootSpawn == null;
+        _isTrapProjectileNull = trapProjectile == null;
         _trapCollider2D = GetComponent<Collider2D>();
         if (trapProjectile != null && shootSpawn != null)
             _shootSpawnPosition = shootSpawn.transform.position;
@@ -21,7 +25,7 @@ public class Trap : MonoBehaviour
 
     private void Update()
     {
-        if (trapProjectile == null || shootSpawn == null)
+        if (_isTrapProjectileNull || _isShootSpawnNull)
             return;
         var hit = Physics2D.Raycast(_shootSpawnPosition, transform.TransformDirection(Vector2.up), rayDistance);
         Debug.DrawRay(_shootSpawnPosition, transform.TransformDirection(Vector2.up) * rayDistance, Color.white);
