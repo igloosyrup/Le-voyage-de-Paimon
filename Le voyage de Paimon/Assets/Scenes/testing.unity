@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+upS46RYwIAAAUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWRgUDcW0tI0kM+JrSTiy9CXtsaZMkjyQGS4b93JQvs0hPLfr73duUvIpRtgDttHozIn3QO5PuIeJt8G/XBRziwUquN+IRzzrvIXeWTWMh5Y05o9Ce+zOoanBH8hyqlT6bobJUotKnXeQkrbZ1Fd8GkBQwZ7Xy1QtfXiBzwZ5z6kiNa06W3PtFK6eiEJgflwPSpi0mazJfLm5g/vpnM0zS9ncWqrqhVXLK6gdwz6GuT21iVhiyF1GICnSz8LC2lsBEZcccmMN80FRjw1HPBkGhAQyeeeQWirJyHPax+KQoLLupg2PFOGFSsa0t+6k7Gmtldh+yDydYPSqa3AVbX9Om/+DgJ4cLo+vE8N6F+hqsE372xI2fWDXQeuu966EkQaM/kjm0lvFegnvWD0a3KMehM60tbC9O7/u+F2qoCvuv9HdQrZ9v0ip/Xel6q53AK7A8rKeptUHLeOTZSB8HDLYDB5fxCwOFSbGyBXo/ij4XfrByeVAzcC2MdhiJL5eFtdWt8KlkHzTyb1q20URDcEXQDikl3fMU27nqFV7HB2KvIPfOPJw6PsfObuCoJ7j6f0qvQq95flmUrvX8CW720TgoFPWgfeEadVlqp7sKGmpzLNq0pGB+Ula3I/z0tQmFLU7akdAmz6WI6G89SSgtacD6fL6bzBSfh9oRCnky+dkCjPLg11TdXeGe+owPrhCpHZfy25IbtH8RnrQeiC1XoDTcA6qXrcYEOBsfg08zXuUCJNuB8s7DGr4xIzXeQZ5dGWeC6PjjDsr5LRhrxoZ33ZGQVPiMZOZHTX1BLAwQUAAAICAAAmJ/rTwIMEW0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0kkFqkoFlormBgXmqsZGZkbGusaWBQZpBWnKyiYmZkYlZslIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAmJ/rqUuOkWMCAAAFBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAmJ/rTwIMEW0AAAB4AAAACQAkAAAAAAAAAAAAAACwAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGgDAAAAAA==
+    dataString: UEsDBBQAAAgIAACYn+vUVzIoZQIAAAYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWRgUDcWwuE9EBgQju5+CLkta1BljySHD4y/PdKsoxdekLs7tt9763kL8SEroAaqdaKpRuZAvo+QO6Mvg265CucSS7Fnl2hrflgqSlcEfE178QwaeORg2lZglGM/hA5d8XYBmvBMqnKVZrDQmqjbTgjXINNKWkcWtjQ1wCd7c8wdpCLPY3n7nS1pxgPbvZIQRhQXelsFEfT+fwp1A+fRtM4jp8nAdWAakE5KStInYIOGz0HVOyrhJUWCvBo5mZJzpkOzJC5VF75vipAgZOeMmKFejZ45JQXwPLCONp99DbLNJjggyKXJVPWsaYt+ikbG0uijw2zT8JrNygaP3taTdPNf/lh5NOZkuVrOzfCboYpGD2+kwsl2vR87oeXHfXIG3Qi/EgOHD4KEG9yrWQtUps0qnbQWsN42f29S1sUQI+9EQ3XNtqCq87ydq/tVp2Im5d/XnBWHryV0yaw59I77i8DKLudX5axvyo6tLBRR+OPht8k79+pkHhhShubCjKFo3eQtXKlaOVNc3Jqs5BKgA8H0hUIws1lZ9uYxx0+5HpjHzIvxL2eMDzk2kfxAPHhrh7jh9ROnu7b0oU8bUAX29pwJqAj7RJv1qeFFKK5Yn1PWti+VhmhPVhes/Tfu4UwHHBM5hjPYTKejSfDSYxxhjNKp9PZeDqjyF8+JqxOwncN0WCP3Zromgt70VxHA9owkQ/y8HFJFTmt2bWUPdOZyOSeKgCxbXrcqYOyY+zbTFcpsxbtwbhmfo1fCeKSHiFN7o0Sr3V1NookXZcEVexTGhdJ0MJ/RxJ0Q7e/UEsDBBQAAAgIAACYn+tPAgwRbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrSSQWqSgWWiuYGBeaqxkZmRsa6xpYFBmkFacrKJiZmRiVmyUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACYn+vUVzIoZQIAAAYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+tPAgwRbQAAAHgAAAAJACQAAAAAAAAAAAAAALICAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAagMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -291,7 +291,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 0
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
-  showGraphs: 0
+  showGraphs: 1
 --- !u!4 &1152849642
 Transform:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   drawGizmos: 1
-  detailedGizmos: 0
+  detailedGizmos: 1
   startEndModifier:
     addPoints: 0
     exactStartPoint: 3
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 396402954}
+  target: {fileID: 0}
 --- !u!114 &1303550715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365589713119934749, guid: d35b7df858b88124b8405d822915dc7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 365589713119934749, guid: d35b7df858b88124b8405d822915dc7c, type: 3}
       propertyPath: m_LocalPosition.y
