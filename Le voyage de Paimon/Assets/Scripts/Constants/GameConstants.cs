@@ -24,7 +24,7 @@ public class GameConstants
     public const string Attack02 = "k";
     public const string Attack03 = "l";
     public const string UltAttack = "space";
-    public const string IsWolfAttackAnimBool = "isAttack";
+    public const string IsAttackAnimBool = "isAttack";
     public const int MaxWolfCount = 5;
     public const int NoDelay = 0;
     public const int Projectile01Index = 0;

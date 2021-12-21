@@ -41,14 +41,14 @@ public class WolfWeapon : MonoBehaviour
         print("I AM AC");
         wolfWeapon.SetActive(true);
         _wolfCollider2D.enabled = true;
-        _animator.SetBool(GameConstants.IsWolfAttackAnimBool, true);
+        _animator.SetBool(GameConstants.IsAttackAnimBool, true);
         StartCoroutine(DisableAnimationDelay());
     }
 
     private void DeactivateWeapon()
     {
         print("I AM DC");
-        _animator.SetBool(GameConstants.IsWolfAttackAnimBool, false);
+        _animator.SetBool(GameConstants.IsAttackAnimBool, false);
         _wolfCollider2D.enabled = false;
         wolfWeapon.SetActive(false);
         transform.position = new Vector3(0.72f, 3.25f, 0f);
