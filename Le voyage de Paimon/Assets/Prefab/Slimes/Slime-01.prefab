@@ -94,7 +94,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365589713119934746}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c484968ac853ee42bae9ce8aab73f38, type: 3}
   m_Name: 
@@ -102,7 +102,7 @@ MonoBehaviour:
   slimeAI: {fileID: 0}
   meleeHitbox: {fileID: 0}
   shootSpawn: {fileID: 9123750722913708621}
-  shootDetection: {fileID: 0}
+  shootDetection: {fileID: 3848095739579635588}
   listProjectiles:
   - {fileID: 980588832683093748, guid: 79e4c16d661febf448bd41fc21c2baed, type: 3}
   rayDistance: 10
