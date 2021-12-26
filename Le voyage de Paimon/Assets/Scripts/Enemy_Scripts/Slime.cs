@@ -24,9 +24,10 @@ public class Slime : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private bool _isAttack;
     private bool _isAIPathNotNull;
-
+    private int _isDeadAnimBoolHash;
     private void Start()
     {
+        _isDeadAnimBoolHash = Animator.StringToHash(GameConstants.IsDeadAnimBool);
         _animator = GetComponent<Animator>();
         _aiPath = slimeAI.GetComponent<AIPath>();
         _isAIPathNotNull = _aiPath != null;
@@ -95,23 +96,27 @@ public class Slime : MonoBehaviour
     {
         if (other.gameObject.CompareTag(GameConstants.WolfWeaponTag))
         {
-            // Destroy(_collider2D);
-            // Destroy(_rigidbody2D);
-            StartCoroutine(DelayDestroy());
+            Destroy(_collider2D);
+            Destroy(_rigidbody2D);
+            _animator.SetBool(GameConstants.IsAttackAnimBool, false);
+            _animator.SetBool(GameConstants.IsHitAnimBool, false);
+            _animator.SetBool(_isDeadAnimBoolHash, true);
+            // StartCoroutine(DelayDestroy());
         }
-
-        // TODO add future implementations for general player projectiles
+        else if (other.gameObject.CompareTag(GameConstants.PlayerProjectileTag))
+        { 
+            // TODO add future implementations for general player projectiles
+            
+        }
     }
 
     private void ShootProjectile()
     {
         if (listProjectiles.Count <= 0 || shootSpawn == false || _isAttack)
             return;
-        print("Shoot");
         Instantiate(listProjectiles[GameConstants.Projectile01Index], shootSpawn.transform.position,
             shootSpawn.transform.rotation);
         _isAttack = true;
-        print("has shot");
         _animator.SetBool(GameConstants.IsAttackAnimBool, false);
         StartCoroutine(DelayNextAttack());
     }
@@ -135,23 +140,19 @@ public class Slime : MonoBehaviour
         yield return new WaitForSeconds(_attackDelay);
         _isAttack = false;
     }
+    
 
-    private IEnumerator DelayDestroy()
+    private IEnumerator StopAnimation()
     {
-        _animator.SetBool(GameConstants.IsAttackAnimBool, false);
-        _animator.SetBool(GameConstants.IsHitAnimBool, false);
-        _animator.SetBool(GameConstants.IsDeadAnimBool, true);
-        Destroy(_collider2D);
-        Destroy(_rigidbody2D);
+        _animator.SetBool(_isDeadAnimBoolHash, false);
         yield return new WaitForSeconds(GameConstants.MonsterDelay);
-        _animator.SetBool(GameConstants.IsDeadAnimBool, false);
+        DestroySlime();
     }
 
     private void DestroySlime()
     {
+        print("destroyed");
         Destroy(_spriteRenderer);
         Destroy(slimeAI);
-        // Destroying the parent object allows to skip destroying the gameobject 
-        // Destroy(gameObject);
     }
 }
