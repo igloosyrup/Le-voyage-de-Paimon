@@ -1,6 +1,7 @@
 public class GameConstants
 {
     public const string WolfWeaponTag = "WolfWeapon";
+    public const string PlayerProjectileTag = "PlayerProjectile";
     public const string BackWeaponTag = "BackWeapon";
     public const string ObstacleTag = "Obstacle";
     public const string PlayerSpawnTag = "PlayerSpawn";
@@ -14,7 +15,7 @@ public class GameConstants
     public const string SceneLvl03 = "Level-03";
     
     public const float ItemDelay = 0.1f;
-    public const float MonsterDelay = 0.3f;
+    public const float MonsterDelay = 1f;
     public const float MeleeAttackDelay = 1f;
     public const float RangeAttackDelay = 2f;
     public const float ProjectileDuration = 1f;
