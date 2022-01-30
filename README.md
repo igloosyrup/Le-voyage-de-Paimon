@@ -10,7 +10,6 @@ La technologie à explorer et adapter et le suivant:
 Afin de montrer cette technologie, je m'attends à concevoir un jeu 2d sur unity
 de style 2d platformer comme Mario.
 
-# Time to resume the project, YAY!
 
 L'image ci-dessous montre le personnage principale qui sera le joueur.
 
